@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Software Design </title>
+  <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="css/style2.css" media="print">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+
+  <style>
+    table.imp_tbl {
+      border: 1px solid black;
+      border-collapse: collapse;
+      width: 60%;
+    }
+
+    table.imp_tbl th {
+      border: 1px solid black;
+      text-align: center;
+      font-size: 20px;
+      background-color: #d3d3d3;
+    }
+
+    table.imp_tbl td {
+      border: 1px solid black;
+    }
+  </style>
+
+
+
+</head>
+
+<body>
+  <header id="main-header">
+    <div class="container">
+      <h1>Software Design Specification</h1>
+    </div>
+
+  </header>
+
+  <section id="showcase">
+    <div class="container">
+      <h2> Reading Progress App</h2> <br>
+      <i>Version 2.0 [pending for approval]</i> <br>
+      <ul>
+        <span style="font-weight: normal; margin-left: -40px;">Prepared by</span>
+
+        <li>Mahmudul Hasan (1912141042)</li>
+        <li>Nawal Ayesha Khan (1911301042)</li>
+        <li>Sabrina Mannan Meem (1821319042)</li>
+      </ul>
+      <br>
+      North South University<br>
+      18 August, 2021
+    </div>
+  </section>
+
+  <div class="layout">
+
+    <div id="toc_container">
+      <p class="toc_title">Contents</p>
+      <ul class="toc_list">
+        <li><a href="#First_Point_Header">1 Introduction</a>
+          <ul>
+            <li><a href="#First_Sub_Point_1">1.1 Purpose</a></li>
+            <li><a href="#First_Sub_Point_2">1.2 Intended Audience and Reading Suggestions </a></li>
+
+          </ul>
+        </li>
+
+
+        <li><a href="#Second_Point_Header">2.Document Conventions</a></li>
+
+
+
+
+
+        <li><a href="#Third_Point_Header">3.Description of Design Components</a>
+          <ul>
+            <li><a href="#Third_Sub_Point_1">3.1 User Interfaces</a></li>
+
+            <ul>
+              <li><a href="#sub311">3.1.1 Role Management</a></li>
+              <li><a href="#sub312">3.1.2 Profile Management</a></li>
+              <li><a href="#sub313">3.1.3 Storing messages</a></li>
+              <li><a href="#sub314">3.1.4 Storing PDF</a></li>
+              <li><a href="#sub315">3.1.5 CRUD operations of Class</a></li>
+              <li><a href="#sub318">3.1.8 CRUD operations of Post</a></li>
+              <li><a href="#sub319">3.1.9 Storing the highlighted information along with the question or audio</a></li>
+              <li><a href="#sub3110">3.1.10 Storing the photo reel of the students </a></li>
+              <li><a href="#sub3111">3.1.11 Recording who is reading which material</a></li>
+              <li><a href="#sub3112"> 3.1.12 Password Reset</a></li>
+              <li><a href="#sub3113">3.1.13 Account update</a></li>
+              <li><a href="#sub3114">3.1.14 Two-factor authentication </a></li>
+              <li><a href="#sub3115">3.1.15 Browser sessions</a></li>
+              <li><a href="#sub3116">3.1.16 Delete account</a></li>
+              <li><a href="#sub3117">3.1.17 User authentication</a></li>
+
+
+            </ul>
+
+            <li><a href="#Third_Sub_Point_2">3.2 Client-side Components </a></li>
+            <ul>
+              <li><a href="#sub321">3.2.1 Web</a></li>
+              <li><a href="#sub322">3.2.2 Mobile</a></li>
+            </ul>
+            <li><a href="#Third_Sub_Point_3">3.3 Third-party Services</a></li>
+            <ul>
+              <li><a href="#sub331">3.3.1 Federated Authentication for Google</a></li>
+
+
+            </ul>
+
+
+        </li>
+
+
+        <li><a href="#Fourth_Point_Header">4.High-Level Component design</a>
+
+        </li>
+
+        <li><a href="#Fifth_Point_Header">5.Class Diagrams</a>
+          <ul>
+            <li><a href="#Fifth_Sub_Point_1">5.1 Class Diagram</a></li>
+            <li><a href="#Fifth_Sub_Point_2">5.2 User Model </a></li>
+
+
+            <ul>
+
+              <li><a href="#sub521">5.2.1 Purpose</a></li>
+              <li><a href="#sub522">5.2.2 Attributes</a></li>
+              <li><a href="#sub523">5.2.3 Methods</a></li>
+            </ul>
+
+
+
+
+
+            <li><a href="#Fifth_Sub_Point_3">5.3 Course Model</a></li>
+
+            <ul>
+
+              <li><a href="#sub531">5.3.1 Purpose</a></li>
+              <li><a href="#sub532">5.3.2 Attributes</a></li>
+              <li><a href="#sub533">5.3.3 Methods</a></li>
+            </ul>
+
+            <li><a href="#Fifth_Sub_Point_4">5.4 Post Model</a>
+
+
+              <ul>
+
+                <li><a href="#sub541"> 5.4.1 Purpose</a></li>
+                <li><a href="#sub542"> 5.4.2 Attributes</a></li>
+                <li><a href="#sub543"> 5.4.3 Methods</a></li>
+              </ul>
+
+            </li>
+
+
+            <li><a href="#Fifth_Sub_Point_4">5.5 Profile Model </a>
+
+              <ul>
+
+                <li><a href="#sub551"> 5.5.1 Purpose</a></li>
+                <li><a href="#sub552"> 5.5.2 Attributes</a></li>
+                <li><a href="#sub553"> 5.5.3 Methods</a></li>
+              </ul>
+          </ul>
+        </li>
+
+        <li><a href="#Sixth_Point_Header"> 6.Database Designs</a> </li>
+
+        <li><a href="#Sixth_Sub_Point_1">6.1 ER Diagram</a> </li>
+        <li><a href="#Sixth_Sub_Point_2">6.2 Users table</a>
+          <ul>
+            <li><a href="#sub621"> 6.2.1 Purpose</a></li>
+            <li><a href="#sub622"> 6.2.2 Attributes</a></li>
+
+          </ul>
+        </li>
+
+
+        <li><a href="#Sixth_Sub_Point_3"> 6.3 Courses table</a>
+
+          <ul>
+            <li><a href="#sub631"> 6.3.1 Purpose</a></li>
+            <li><a href="#sub632"> 6.3.2 Attributes</a></li>
+          </ul>
+
+        </li>
+
+
+        <li><a href="#Sixth_Sub_Point_4"> 6.4 course_user table</a>
+
+          <ul>
+            <li><a href="#sub641"> 6.4.1 Purpose </a></li>
+            <li><a href="#sub642"> 6.4.2 Attributes</a></li>
+
+          </ul>
+
+        </li>
+
+
+        <li><a href="#Sixth_Sub_Point_5"> 6.5 course_student table</a>
+
+          <ul>
+            <li><a href="#sub651"> 6.5.1 Purpose </a></li>
+            <li><a href="#sub652"> 6.5.2 Attributes</a></li>
+
+          </ul>
+
+        </li>
+
+        <li><a href="#Sixth_Sub_Point_6">6.6 Profile table</a>
+
+          <ul>
+            <li><a href="#sub6661"> 6.6.1 Purpose</a></li>
+            <li><a href="#sub6662"> 6.6.2 Attributes</a></li>
+
+          </ul>
+
+        </li>
+
+        <li><a href="#Sixth_Sub_Point_7">6.7 Posts table</a>
+
+          <ul>
+            <li><a href="#sub6671"> 6.7.1 Purpose</a></li>
+            <li><a href="#sub6672"> 6.7.2 Attributes</a></li>
+
+          </ul>
+
+        </li>
+
+
+        <li><a href="#Sixth_Sub_Point_8">6.8 Sessions table</a>
+
+          <ul>
+            <li><a href="#sub6681">6.8.1 Purpose</a></li>
+            <li><a href="#ssub6682">6.8.2 Attributes</a></li>
+
+          </ul>
+
+        </li>
+
+
+        <li><a href="#Sixth_Sub_Point_9"> 6.9 password_resets table</a>
+
+          <ul>
+            <li><a href="#sub6691">6.9.1 Purpose</a></li>
+            <li><a href="#sub6691">6.9.2 Attributes</a></li>
+
+          </ul>
+
+        </li>
+
+
+
+        <li><a href="#Sixth_Sub_Point_10"> 6.10 Migrations table</a>
+
+          <ul>
+            <li><a href="#sub66101">6.10.1 Purpose</a></li>
+            <li><a href="#sub66102">6.10.2 Attributes</a></li>
+
+          </ul>
+
+        </li>
+
+        <li><a href="#Sixth_Sub_Point_11"> 6.11 personal_access_tokens table</a>
+
+          <ul>
+            <li><a href="#sub66111">6.11.1 Purpose</a></li>
+            <li><a href="#sub66112">6.11.2 Attributes</a></li>
+
+          </ul>
+
+        </li>
+
+
+        <li><a href="#Sixth_Sub_Point_12"> 6.12 failed_jobs table </a>
+
+          <ul>
+            <li><a href="#sub66121">6.12.1 Purpose</a></li>
+            <li><a href="#sub66122">6.12.2 Attributes</a></li>
+
+          </ul>
+
+        </li>
+
+
+        <li><a href="#Seventh_point_Header">7.Implementation Plan</a> </li>
+
+    </div>
+    </section>
+
+
+    <div class="Documentation">
+      <h2>Revision History</h2>
+      <div id="revision">
+        <table id="t01">
+          <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Reason For Changes</th>
+            <th>Version</th>
+          </tr>
+          <tr>
+            <td>First Publication</td>
+            <td>August 18 , 2021</td>
+            <td></td>
+            <td>v1.0</td>
+          </tr>
+
+          <tr>
+            <td>Second Publication</td>
+            <td>September 13, 2021</td>
+            <td>Database models and libraries updated</td>
+            <td>v2.0</td>
+          </tr>
+        </table>
+      </div>
+
+      <h1 id="First_Point_Header"> Introduction</h1>
+
+      <p>
+      <h2 id="First_Sub_Point_1">1.1 Purpose </h2>
+      The purpose of this document is to describe the design and implementation details of the "Reading Progress App"
+      system. The software design is derived from the functional and non-functional requirements detailed in the
+      software requirement specification for the project, as well as design constraints and any other external factor
+      provided in the document. This document is intended mostly for people involved with the development of the system.
+      It describes the whole system, and which will be released in its 2.0 version very soon.
+
+      </p>
+
+
+      <p>
+      <h2 id="First_Sub_Point_2"> 1.2 Intended Audience and Reading Suggestions</h2>
+
+      This document is mostly intended for developers, project managers, testers, and documentation writers. The rest of
+      the SDS consists of the overall design of the product, including its class diagrams and high-level component
+      designs, as well as the database design and the implementation plan for the system. It would be best to begin with
+      the description of design components, then to the overall database design and high-level component designs, then
+      to the remaining description of those sections.
+
+
+      <h1 id="Second_Point_Header">2.Document Conventions</h1>
+      <p>
+        This document was created based on the IEEE Software Requirements Specification. We’ve followed a few key
+        conventions of our own for this document, those points are described below.
+      <ul>
+        <li>HTML semantics of H1, H2, Paragraph to denote specific sections and its content. Each content block is
+          labelled with the respective section no. and sub-section no. For example: "1.1 Purpose" means it is the first
+          sub-section of the first section. </li>
+        <li>Italic has been mildly used in a few places to denote terms. We have also used italic for the labels of the
+          images or figures. </li>
+        <li>In the "5.Class diagrams" and “6.Database designs” sections, we have used a detailed class diagram and an ER
+          diagram respectively to illustrate and describe the features. Roman numeric characters (I, II, III, IV, etc.)
+          have also been used to describe their purpose, attributes, methods etc. for the classes and database tables.
+        </li>
+        <li>For the printable version, we have removed most of the CSS properties. </li>
+      </ul>
+      </p>
+
+
+      <h1 id="Third_Point_Header">3. Description of Design Components</h1>
+      <p>
+      <h2 id="Third_Sub_Point_1">3.1 Server-side Components</h2>
+
+      <p>
+        For backend development, Laravel is being used. A MySQL database is used to store all relevant information
+        regarding the users, the courses, the assignment posts, etc.
+
+      <h3 id="sub311">3.1.1 Role Management</h3>
+
+      <p>User roles are managed using a separate migration for adding roles to a user record, while requests are
+        directed by middleware and handled by controllers, according to the user roles.
+      </p>
+
+      <h3 id="sub312">3.1.2 Profile Management</h3>
+      <p>User profiles are managed using Laravel Jetstream package, and requests are directed by middleware and handled
+        by controllers, according to the user roles.
+      </p>
+
+
+      <h3 id="sub314"> 3.1.3 Storing PDF</h3>
+      <p>A PDF file is assigned with a Post, and is stored in the public folder of the storage directory.
+      </p>
+
+      <h3 id="sub315"> 3.1.4 CRUD operations of Class</h3>
+      <p>
+        Classroom is created by a Teacher, and implemented using CourseController, which handles all incoming requests
+        related to Classroom.
+      </p>
+
+      <h3 id="sub316"> 3.1.5 Invitation code Generation</h3>
+
+      <p>
+        Invitation code for a classroom is created whenever a classroom is created by a Teacher, and a random
+        alpha-numeric string is generated through the CourseController.
+
+      </p>
+
+      <h3 id="sub317"> 3.1.6 Invitation code Verification </h3>
+
+      <p>
+        When a Teacher or a Student user joins a classroom, a code is entered and then verified using CourseController,
+        and if the code is correct, the CourseController creates a relationship between the user and the course.
+
+      </p>
+
+      <h3 id="sub318"> 3.1.7 CRUD operations of Post </h3>
+
+      <p>
+        Posts are created by a Teacher using the Course, and implemented using PostController, which handles all
+        incoming requests related to Post.
+
+      </p>
+
+      <h3 id="sub319">3.1.8 Viewing the assignments </h3>
+
+      <p>A PDF viewer is created using javascript and used to view the assignments</p>
+
+      <h3 id="sub3112"> 3.1.9 Password Reset </h3>
+
+      Laravel’s Jetstream package is used to allow users to reset their Passwords.
+      <h3 id="sub3113">3.1.10 Account update </h3>
+      Laravel’s Jetstream package is used to allow users to update their Account information.
+      <h3 id="sub3114">3.1.11 Two-factor authentication </h3>
+      Laravel’s Jetstream package is used to allow users to enable two-factor authentication.
+      <h3 id="sub3115">3.1.12 Browser sessions</h3>
+      Laravel’s Jetstream package is used to allow users to see their browser session information, as well as log out of
+      all other browser sessions.
+      <h3 id="sub3116">3.1.13 Delete account</h3>
+      Laravel’s Jetstream package is used to allow users to delete their accounts from the system.
+      <h3 id="sub3117">3.1.14 User authentication</h3>
+      Laravel’s Authentication package is used to authenticate the users signed into the system.
+
+
+      <h2 id="Third_Sub_Point_2">3.2 Client-side Components</h2>
+      <p>
+      <h3 id="sub321">3.2.1 Web</h3>
+
+      In web development, 'client side' refers to everything in a web application that is displayed or takes place on
+      the client. This includes what the user sees, such as text, images, and the rest of the UI, along with any actions
+      that an application performs within the user's browser. Markup languages like HTML and CSS are interpreted by the
+      browser on the client side.
+      <br>
+
+      Since, we used jetstream; we can control the view with Vue based Tailwind. So we are using it to create the front
+      end part.
+
+      <ul>
+        <li>Views of all the classroom: It is created using tailwind css which will show all the classroom to teachers
+          and students. </li>
+        <li>PDF Viewer:Javascript </li>
+        <li>View of students:Vue based tailwind</li>
+
+      </ul>
+
+      <h3 id="sub322">3.2.2 Mobile</h3>
+
+      <ul>
+        <li>Views of all the classroom </li>
+        <li>PDF Viewer:As we only require to open 1 page at a time with previous and next buttons to navigate through
+          other pages, “PDF Renderer class” provided by android can be used. </li>
+
+        <li>View of students </li>
+      </ul>
+
+
+      <h2 id="Third_Sub_Point_3">3.3 Third-party Services</h2>
+      <h3 id="sub331">3.3.1 Federated Authentication for Google</h3>
+
+      We will use Laravel’s socialite to give users the opportunity to sign up with a Google account.
+
+
+
+      </p>
+
+      </p>
+
+
+      <h1 id="Fourth_Point_Header">4.High-Level component design</h1>
+
+      <img src="images/newHL.png" alt="High-Level component design">
+      <i class="fig">Fig:High-Level component design</i>
+
+
+      <h1 id="Fifth_Point_Header">5.Class Diagrams</h1>
+      <h2 id="Fifth_Sub_Point_1">5.1 Class Diagram</h2>
+
+      <img src="images/Class_diagram(modified).png" alt="Class diagram">
+      <i class="fig">Fig: Class Diagram</i>
+
+      <h2 id="Fifth_Sub_Point_2">5.2 User Model</h2>
+
+      <h3 id="sub521">5.2.1 Purpose</h3>
+      <p>
+        User model represents both the Teacher and Student users in the system, who are differentiated by their roles. A
+        teacher can teach multiple courses, and a student can be enrolled in multiple courses. A student must have a
+        profile picture to complete their assignments, which is stored in their profile.
+
+      </p>
+
+      <h3 id="sub522">5.2.2 Attributes</h3>
+
+      <ol type="i">
+        <li> id: unsignedBigInteger; Identifies each user record in system. </li>
+        <li> name: string. Stores name for a user </li>
+        <li> role_id: unsignedBigInteger. Stores a user’s role to determine if they are a student or a teacher. </li>
+        <li> email: string. Stores the unique email address for a user. </li>
+        <li> password: Stores the password for a user. </li>
+
+      </ol>
+
+
+      <h3 id="sub523">5.2.3 Methods:</h3>
+
+      <ol type="i">
+
+        <li> Courses(): It is a no-parameter function that represents the M:M relationship between the teacher user and
+          their courses. </li>
+        <li>
+          Lessons(): It is a no-parameter function that represents the M:M relationship between the student user and
+          their courses. </li>
+        <li>Profile(): It is a no-parameter function that represents the 1:1 relationship between a student user and
+          their profile picture.
+        </li>
+
+      </ol>
+
+      <h2 id="Fifth_Sub_Point_3">5.3 Course Model</h2>
+
+      <h3 id="sub531">5.3.1 Purpose</h3>
+
+      Course Model represents the courses created by the Teacher users in the system, and can belong to multiple
+      teachers. Courses also enroll multiple students, and can contain multiple posts created by the teachers.
+
+      <h3 id="sub532">5.3.2 Attributes</h3>
+
+      <ol type="i">
+        <li>user_id: unsignedBigInteger. Identifies each course created by a user. </li>
+        <li>title: string. Stores the unique name of each course </li>
+        <li>code: string. Stores the hashed string created by the system. </li>
+        <li>created_at: timestamp. Stores the date and time the course record was created. </li>
+        <li>updated_at: timestamp. Stores the date and time the course record was updated. </li>
+      </ol>
+
+      <h3 id="sub533"> 5.3.3 Methods</h3>
+
+      <ol type="i">
+
+        <li>Teachers(): It is a no-parameter function that represents the M:M relationship between the course and the
+          teacher users instructing it. </li>
+        <li>Students():It is a no-parameter function that represents the M:M relationship between the course and the
+          student users enrolled in it. </li>
+        <li>Posts(): It is a no-parameter function that represents the 1:M relationship between the course and the posts
+          the course’s teachers create in it. </li>
+
+      </ol>
+      <h2 id="Fifth_Sub_Point_4">5.4 Post Model </h2>
+
+      <h3 id="sub541"> 5.4.1 Purpose</h3>
+
+      Post Model represent the posts created by the Teacher users of a course, and can only be associated to one course.
+
+
+      <h3 id="sub542"> 5.4.2 Attributes</h3>
+
+      <ol type="i">
+        <li>id: unsignedBigInteger. Identifies each post created in a course. </li>
+        <li>course_id: unsignedBigInteger. Stores course_id of the course a post belongs to. </li>
+        <li>title: string. Stores the unique title of a created post. </li>
+        <li>pdf_file: string. Stored the file path of the PDF uploaded for a post. </li>
+        <li>deadline: date. Stores the deadline of a post. </li>
+        <li>created_at: timestamp. Stores the date and time the post record was created. </li>
+        <li>updated_at: timestamp. Stores the date and time the post record was updated. </li>
+      </ol>
+
+
+      <h3 id="sub543"> 5.4.3 Methods</h3>
+      <ol type="i">
+        <li>Course(): It is a no-parameter function that represents the 1:M relationship between the post and the course
+          it is associated with. </li>
+      </ol>
+
+      <h2 id="Fifth_Sub_Point_5">5.5 profilePic Model </h2>
+
+      <h3 id="sub551"> 5.5.1 Purpose: </h3>
+
+      profilePic model represents the profile created for a Student user, and can only be associated with one student.
+
+
+      <h3 id="sub552"> 5.5.2 Attributes</h3>
+      <ol type="i">
+
+        <li>student_id: unsignedBigInteger. Stores the user_id of the student a profile belongs to. </li>
+        <li>profile_picture: string. Stores the image path of the profile picture of a student. </li>
+
+      </ol>
+
+      <h3 id="sub553"> 5.5.3 Methods</h3>
+
+      Name, parameters, return type, purpose, and description for each method <br>
+      < List the sequences of user actions and system responses that stimulate the behavior defined for this feature.
+        These will correspond to the dialog elements associated with use cases.>
+
+
+
+
+
+        <h1 id="Sixth_Point_Header">6.Database Design</h1>
+
+        <h2 id="Sixth_Sub_Point_1"> 6.1 ER Diagram</h2>
+
+        <img src="images/ERD_13th_Sept.png" alt="ER diagram">
+        <i class="fig">Fig: ER Diagram</i>
+
+        <h2 id="Sixth_Sub_Point_2"> 6.2 Users table </h2>
+
+
+        <h3 id="sub621"> 6.2.1 Purpose</h3>
+        The users table holds the records for all teacher and student users in the system.
+
+        <h3 id="sub622"> 6.2.2 Attributes</h3>
+
+        <ol type="i">
+
+          <li>id: unsignedBigInteger; Primary key. Identifies each user record in system.
+          <li>name: string. Stores username for a user
+          <li>role_id: unsignedBigInteger. Stores role of a user to determine if they are a teacher or a student.
+          <li>email: string. Stores the unique email address for a user
+          <li>email_verified_at: timestamp. Stores the time and date when user verified their email.
+          <li>password: string. Stores the password of a user by hashing the string.
+          <li>remember_token: Stores if user’s account information will be remembered
+          <li>current_team_id: integer; Foreign key. Stores user’s team id, comes as part of the Laravel Jetstream
+            package, and is not used for this product.
+          <li>profile_photo_path: string. Stores user’s profile photo, comes as part of the Laravel Jetstream package,
+            and is not used for this product
+          <li>two_factor_secret: text. Stores the key for when a user enables two-factor authentication.
+          <li>two_factor_recovery_codes: text. Stores the recovery code for when a user enables two-factor
+            authentication.
+          <li> created_at: timestamp. Stores the date and time the user record was created.
+          <li>updated_at: timestamp. Stores the date and time the user record was updated.
+
+
+        </ol>
+
+        <h2 id="Sixth_Sub_Point_3"> 6.3 Courses table</h2>
+        <h3 id="sub631"> 6.3.1 Purpose</h3>
+        The courses table contains all the relevant data for the courses created by teacher users in the system.
+        <h3 id="sub632"> 6.3.2 Attributes</h3>
+
+        <ol type="a">
+          <li> id: unsignedBigInteger; Primary key. Identifies each course created by a user. </li>
+          <li> title: string. Stores the unique name of each course </li>
+          <li>code: string. Stores the hashed string created by the system. </li>
+          <li>created_at: timestamp. Stores the date and time the course record was created. </li>
+          <li>updated_at: timestamp. Stores the date and time the course record was updated. </li>
+
+
+        </ol>
+
+        <h2 id="Sixth_Sub_Point_4"> 6.4 course_user table</h2>
+
+        <h3 id="sub641"> 6.4.1 Purpose </h3>
+        The course_user table is a pivot table that represents all the Many-to-Many relationships between the teacher
+        users and the courses they teach in the system.
+        <h3 id="sub642"> 6.4.2 Attributes</h3>
+        <ol type="I">
+          <li>user_id: unsignedBigInteger; Primary key, Foreign key, Composite key along with course_id. Used to
+            identify each relationship created between a course and a teacher. </li>
+          <li>course_id: unsignedBigInteger; Primary key, Foreign key, Composite key along with user_id. Used to
+            identify each relationship created between a course and a teacher. </li>
+          <li> created_at: timestamp. Stores the date and time the relationship record was created. </li>
+          <li>updated_at: timestamp. Stores the date and time the relationship record was updated. </li>
+
+        </ol>
+
+        <h2 id="Sixth_Sub_Point_5"> 6.5 course_student table</h2>
+
+        <h3 id="sub651"> 6.5.1 Purpose </h3>
+
+        The course_student table is a pivot table that represents all the Many-to-Many relationships between the student
+        users and the courses they are enrolled in.
+
+        <h3 id="sub652"> 6.5.2 Attributes </h3>
+
+        <ol type="I">
+          <li>user_id: unsignedBigInteger; Primary key, Foreign key, Composite key along with course_id. Used to
+            identify each relationship created between a course and a student. </li>
+
+          <li>course_id: unsignedBigInteger; Primary key, Foreign key, Composite key along with user_id. Used to
+            identify each relationship created between a course and a student. </li>
+          <li> created_at: timestamp. Stores the date and time the relationship record was created. </li>
+          <li>updated_at: timestamp. Stores the date and time the relationship record was updated. </li>
+
+        </ol>
+
+        <h2 id="Sixth_Sub_Point_6">6.6 ProfilePic table</h2>
+
+        <h3 id="sub6661"> 6.6.1 Purpose</h3>
+
+        The profile table stores the records for every profile created for the student users in the database.
+
+        <h3 id="sub6662"> 6.6.2 Attributes</h3>
+
+        <ol type="I">
+          <li>id: unsignedBigInteger; Primary key. Identifies each profile created by a user. </li>
+          <li>student_id: unsignedBigInteger; Foreign key. Stores the user_id of the student a profile belongs to. </li>
+          <li>profile_picture: string. Stores the image path of the profile picture of a student. </li>
+        </ol>
+
+        <h2 id="Sixth_Sub_Point_7">6.7 Posts table</h2>
+
+        <h3 id="sub6671"> 6.7.1 Purpose</h3>
+
+        The posts table holds the records for all the posts created in a course by a teacher.
+
+        <h3 id="sub6672">6.7.2 Attributes</h3>
+
+        <ol type="i">
+          <li> id: unsignedBigInteger; Primary key. Identifies each post created in a course. </li>
+          <li>course_id: unsignedBigInteger; Foreign key. Stores course_id of the course a post belongs to. </li>
+          <li> title: string. Stores the unique title of a created post. </li>
+          <li>pdf_file: string. Stored the file path of the PDF uploaded for a post. </li>
+          <li> deadline: date. Stores the deadline of a post. </li>
+          <li> created_at: timestamp. Stores the date and time the post record was created. </li>
+          <li> updated_at: timestamp. Stores the date and time the post record was updated. </li>
+        </ol>
+
+        <h2 id="Sixth_Sub_Point_8">6.8 Sessions table</h2>
+
+
+        <h3 id="sub6681">6.8.1 Purpose</h3>
+
+        The sessions table stores the records of users’ browsing sessions. This table is part of the Laravel
+        Authentication package.
+
+        <h3 id="sub6682">6.8.2 Attributes</h3>
+
+        <ol type="i">
+          <li> id: unsignedBigInteger; Primary key. Identifies a session record of a user. </li>
+          <li> user_id: unsignedBigInteger; Foreign key. Stores user_id of a session. </li>
+          <li> ip_address: string. Stores the IP address of the session within 45 characters. </li>
+          <li> user_agent: text. Stores the user agent for the session record. </li>
+          <li> payload: text. Stores the payload for a session </li>
+          <li> last_activity: integer. Stores the last activity for a user’s browsing session. </li>
+          <li> updated_at: timestamp. Stores the date and time the session record was updated. </li>
+
+        </ol>
+
+
+        <h2 id="Sixth_Sub_Point_9"> 6.9 password_resets table </h2>
+        <h3 id="sub6691">6.9.1 Purpose</h3>
+        The password_resets table holds the records of the users who needed to reset passwords. This table is part of
+        the Laravel Authentication package.
+        <h3 id="sub6691">6.9.2 Attributes</h3>
+        <ol type="i">
+          <li> email: string; Index. Stores the email address of the user who has forgotten their password. </li>
+          <li> token: string. Stores token of the user resetting their password. </li>
+          <li>created_at: timestamp. Stores the date and time the password_reset record was created. </li>
+
+        </ol>
+
+        <h2 id="Sixth_Sub_Point_10"> 6.10 Migrations table </h2>
+
+        <h3 id="sub66101">6.10.1 Purpose</h3>
+        The migrations table stores the information of all the Laravel migrations that had been made for the system.
+
+        <h3 id="sub66102">6.10.2 Attributes:</h3>
+
+        <ol type="i">
+          <li> id: unsignedBigInteger; Primary key. Identifies each unique migration record. </li>
+          <li> migration: string. Stores name of the migration record created. </li>
+          <li> batch: integer. Stores the batch of the migration record created. </li>
+
+
+        </ol>
+
+        <h2 id="Sixth_Sub_Point_11"> 6.11 personal_access_tokens table </h2>
+        <h3 id="sub66111">6.11.1 Purpose</h3>
+
+        The personal_access_tokens table stores records of all tokens issued to users for their personal use, such as in
+        API usage.
+
+        <h3 id="sub66112">6.11.2 Attributes</h3>
+        <ol type="i">
+          <li>id: bigIncrements; Primary key. Identifies a personal access token</li>
+
+          <li>tokenable_type: string. Stores the type of token that has been issued. </li>
+          <li> tokenable_id: bigInteger. Stores id of token type.</li>
+          <li>name: string. Stores name of the personal access token.</li>
+          <li>token: string; Stores a unique personal access token within 64 characters.</li>
+          <li> abilities: text. Stores abilities of a personal access token.</li>
+          <li> last_used_at: timestamp. Stores the date and time the personal access token was last used. </li>
+          <li> created_at: timestamp. Stores the date and time the personal access token record was created.</li>
+          <li> updated_at: timestamp. Stores the date and time the personal access token record was updated.</li>
+
+        </ol>
+
+        <h2 id="Sixth_Sub_Point_12"> 6.12 failed_jobs table </h2>
+        <h3 id="sub66121">6.12.1 Purpose</h3>
+
+        The failed_jobs table stores all records of failed jobs in a system.
+        <h3 id="sub66122">6.12.2 Attributes</h3>
+
+        <ol type="i">
+          <li> id: unsignedBigInteger; Primary key. Identifies a failed job record in database. </li>
+          <li> uuid: string; Stores a unique UUID for a failed job record. </li>
+          <li> connection: text. Stores the connection for a failed job record. </li>
+          <li>queue: text. Stores the queue information of a failed job record. </li>
+          <li> payload: longText. Stores the payload of a failed job record. </li>
+          <li> exception: longText. Stores the exception of a filed job record. </li>
+          <li> failed_at: timestamp. Stores the date and time of when a job failed in the system. </li>
+
+        </ol>
+
+        <h1 id="Seventh_point_Header">7. Implementation Plan</h1>
+
+
+
+        <p>
+          <b>Ayesha Khan</b> will be working on the web application and database specifications. <b>Sabrian Mannan
+            Meem</b> will be working on the Web Front End.
+          <b>Mahmudul Hasan</b> will be working on the Android application. All 3 members will be responsible for
+          developing the API business logics.
+        </p>
+        <p>Progress so far:</p>
+        <table class="imp_tbl">
+          <tr>
+            <th colspan="4">Web Application</th>
+          </tr>
+          <tr>
+            <td><b>Task Name</b></td>
+            <td><b>Person in Charge</b></td>
+            <td><b>Status</b></td>
+
+
+
+            <td><b>Completion Date</b></td>
+
+          </tr>
+          <tr>
+            <td>1.1 Login Module</td>
+            <td>Ayesha Khan</td>
+            <td>Complete</td>
+            <td> August 25,2021</td>
+          </tr>
+          <tr>
+            <td>1.2 Registration Module</td>
+            <td>Ayesha Khan</td>
+            <td>Complete</td>
+            <td>August 25,2021</td>
+          </tr>
+          <tr>
+            <td>1.3 Profile Module</td>
+            <td>Ayesha Khan</td>
+            <td>Complete</td>
+            <td>August 26,2021</td>
+          </tr>
+          <tr>
+            <td>1.4 Course Creation</td>
+            <td>Ayesha Khan</td>
+            <td>Complete</td>
+            <td>August 26,2021</td>
+          </tr>
+          <tr>
+            <td>1.5 Post Creation</td>
+            <td>Ayesha Khan</td>
+            <td>Complete</td>
+            <td>August 28,2021</td>
+          </tr>
+
+          <tr>
+            <td>1.6 PDF Viewer Functionality</td>
+            <td>Ayesha Khan</td>
+            <td>Complete</td>
+            <td>September 9,2021</td>
+          </tr>
+
+          <tr>
+            <td>1.7 Signup/Login Module</td>
+            <td>Mahmudul Hasan</td>
+            <td>Done</td>
+            <td>September 5,2021</td>
+          </tr>
+          <tr>
+            <td>1.8 Image-Database Module</td>
+            <td>Ayesha Khan</td>
+            <td>Done</td>
+            <td>September 2,2021</td>
+          </tr>
+
+          <tr>
+            <td>1.10 Invitation Module</td>
+            <td>Mahmudul Hasan</td>
+            <td>Done</td>
+            <td>September 5,2021</td>
+          </tr>
+
+          <tr>
+            <td>1.12 Course based Assigment View Module</td>
+            <td>Ayesha Khan</td>
+            <td>Done</td>
+            <td>Augest 19,2021</td>
+          </tr>
+          <tr>
+            <td>1.13 Zooming Module</td>
+            <td>Mahmudul Hasan</td>
+            <td>Done</td>
+            <td>September 7,2021</td>
+          </tr>
+          <tr>
+            <td>1.14 Written Question Module</td>
+            <td>Sabrina Mannan Meem</td>
+            <td>Incomplete</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>1.15 Verbal Question Module</td>
+            <td>Ayesha Khan</td>
+            <td>Incomplete</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>1.16 Question Tag Module</td>
+            <td>Mahmudul Hasan</td>
+            <td>Incomplete</td>
+            <td>-</td>
+          </tr>
+
+          <tr>
+            <th colspan="4">Web Front End</th>
+          </tr>
+          <tr>
+            <td><b>Task Name</b></td>
+            <td><b>Person in Charge</b></td>
+            <td><b>Status</b></td>
+            <td><b>Completion Date</b></td>
+          </tr>
+          <tr>
+            <td>2.1 Responsive Front End</td>
+            <td>Sabrina Mannan Meem</td>
+            <td>Complete</td>
+            <td>August 30,2021</td>
+          </tr>
+          <tr>
+            <td>2.2 Connect API's</td>
+            <td>Sabrina Mannan Meem</td>
+            <td>Partially done</td>
+            <td>September 8,2021</td>
+          </tr>
+
+          <tr>
+            <th colspan="4">Android Application</th>
+          </tr>
+          <tr>
+            <td><b>Task Name</b></td>
+            <td><b>Person in Charge</b></td>
+            <td><b>Status</b></td>
+            <td><b>Completion Date</b></td>
+          </tr>
+          <tr>
+            <td>3.1 Regular Screens/Activities</td>
+            <td>Mahmudul Hasan</td>
+            <td>Complete</td>
+            <td>September 2,2021</td>
+          </tr>
+          <tr>
+            <td>3.2 PDF Viewer Functionality</td>
+            <td>Mahmudul Hasan</td>
+            <td>Complete</td>
+            <td>September 8,2021</td>
+          </tr>
+          <tr>
+            <td>3.3 Camera Accessing</td>
+            <td>Mahmudul Hasan</td>
+            <td>Complete</td>
+            <td>September 10,2021</td>
+          </tr>
+          <tr>
+            <td>3.4 Consuming API</td>
+            <td>Mahmudul Hasan</td>
+            <td>Partially Done</td>
+            <td>September 11,2021</td>
+          </tr>
+          <tr>
+            <td>3.5 Face Recognition Module</td>
+            <td>Mahmudul Hasan</td>
+            <td>Incomplete</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <th colspan="4">API</th>
+          </tr>
+          <tr>
+            <td><b>Task Name</b></td>
+            <td><b>Person in Charge</b></td>
+            <td><b>Status</b></td>
+            <td><b>Completion Date</b></td>
+          </tr>
+
+
+          <tr>
+            <td>4.1 Course Creation Module</td>
+            <td>Mahmudul Hasan</td>
+            <td>Done</td>
+            <td>September 12,2021</td>
+          </tr>
+
+
+          <tr>
+            <td>4.2 PDF Assignment Module</td>
+            <td>Mahmudul Hasan</td>
+            <td>Done</td>
+            <td>September 12,2021</td>
+          </tr>
+
+        </table>
+
+</body>
+
+</html>

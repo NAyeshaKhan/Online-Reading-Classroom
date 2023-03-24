@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Software requirement </title>
+  <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="css/style2.css" media="print">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header id="main-header">
+    <div class="container">
+      <h1>Software Requirement Specification</h1>
+    </div>
+
+  </header>
+
+  <section id="showcase">
+    <div class="container">
+      <h2> Reading Progress App</h2> <br>
+      <i>Version 2.0 [pending for approval]</i> <br>
+      <ul>
+        <span style="font-weight: normal; margin-left: -40px;">Prepared by</span>
+
+        <li>Mahmudul Hasan (1912141042)</li>
+        <li>Nawal Ayesha Khan (1911301042)</li>
+        <li>Sabrina Mannan Meem (1821319042)</li>
+      </ul>
+      <br>
+      North South University<br>
+      18 July, 2021
+    </div>
+  </section>
+
+  <div class="layout">
+
+    <div id="toc_container">
+      <p class="toc_title">Contents</p>
+      <ul class="toc_list">
+        <li><a href="#First_Point_Header">1 Introduction</a>
+          <ul>
+            <li><a href="#First_Sub_Point_1">1.1 Purpose</a></li>
+            <li><a href="#First_Sub_Point_2">1.2 Document Conventions </a></li>
+            <li><a href="#First_Sub_Point_3">1.3 Intended Audience and Reading Suggestions</a></li>
+            <li><a href="#First_Sub_Point_5">1.4 Product Scope</a></li>
+            <li><a href="#First_Sub_Point_6">1.5 References </a></li>
+          </ul>
+        </li>
+
+
+        <li><a href="#Second_Point_Header">2 Overall Description</a></li>
+
+
+        <ul>
+          <li><a href="#Second_Sub_Point_1">2.1 Product Perspective</a></li>
+          <li><a href="#Second_Sub_Point_2">2.2 Product Functions </a></li>
+          <li><a href="#Second_Sub_Point_3">2.3 User Classes and Characteristics</a></li>
+          <li><a href="#Second_Sub_Point_4">2.4 Operating Environment</a></li>
+          <li><a href="#Second_Sub_Point_5">2.5 Design and Implementation Constraints </a></li>
+          <li><a href="#Second_Sub_Point_6">2.6 User Documentation </a></li>
+          <li><a href="#Second_Sub_Point_6">2.7 Assumptions and Dependencies </a></li>
+        </ul>
+        </li>
+
+
+        <li><a href="#Third_Point_Header">3 External Interface Requirements</a>
+          <ul>
+            <li><a href="#Third_Sub_Point_1">3.1 User Interfaces</a></li>
+            <ul>
+              <li><a href="#sub311">3.1.1 Login Interface</a></li>
+              <li><a href="#sub312">3.1.2 Register Interface</a></li>
+              <li><a href="#sub313">3.1.3 Teacher Interface</a></li>
+              <li><a href="#sub314">3.1.4 Student Interface</a></li>
+            </ul>
+
+            <li><a href="#Third_Sub_Point_2">3.2 Hardware Interfaces </a></li>
+            <li><a href="#Third_Sub_Point_3">3.3 Software Interfaces</a></li>
+            <li><a href="#Third_Sub_Point_4">3.4 Communications Interfaces
+              </a></li>
+
+          </ul>
+        </li>
+
+
+        <li><a href="#Fourth_Point_Header">4 System Features</a>
+          <ul>
+            <li><a href="#Fourth_Sub_Point_1">4.1 Sign-up to system</a></li>
+            <li><a href="#Fourth_Sub_Point_2">4.2 Log-in to system </a></li>
+            <li><a href="#Fourth_Sub_Point_3">4.3 Create classroom</a></li>
+            <li><a href="#Fourth_Sub_Point_4">4.4 Assign PDF files as reading materials </a></li>
+            <li><a href="#Fourth_Sub_Point_5">4.5 Send classroom code to students</a></li>
+
+            <li><a href="#Fourth_Sub_Point_6">4.6 Provide photograph</a></li>
+
+            <li><a href="#Fourth_Sub_Point_7">4.7 Read assignment</a></li>
+            <li><a href="#Fourth_Sub_Point_8">4.8 Run face recognition module on students</a></li>
+
+            <li><a href="#Fourth_Sub_Point_9">4.9 Edit assignment </a></li>
+            <li><a href="#Fourth_Sub_Point_10">4.10 Delete assignment</a></li>
+            <li><a href="#Fourth_Sub_Point_11">4.11 Join Classroom </a></li>
+            <li><a href="#Fourth_Sub_Point_12">4.12 View Assignments on a per-class basis </a></li>
+
+            <li><a href="#Fourth_Sub_Point_13">4.12 View Assignments as a unified list </a></li>
+
+
+
+          </ul>
+        </li>
+
+        <li><a href="#Fifth_Point_Header">5. Other Nonfunctional Requirements</a>
+          <ul>
+            <li><a href="#Fifth_Sub_Point_1">5.1 Performance Requirements</a></li>
+            <li><a href="#Fifth_Sub_Point_2">5.2 Safety Requirements </a></li>
+            <li><a href="#Fifth_Sub_Point_3">5.3 Security Requirements</a></li>
+            <li><a href="#Fifth_Sub_Point_4">5.4 Software Quality Attributes</a></li>
+            <li><a href="#Fifth_Sub_Point_4">5.5 Business Rules </a></li>
+
+          </ul>
+        </li>
+
+        <li><a href="#Sixth_Point_Header"> 6.Other Requirements</a> </li>
+        <li><a href="#AppendixA"> Appendix A: Glossary</a> </li>
+        <li><a href="#AppendixB"> Appendix B: Analysis Models</a> </li>
+        <li><a href="#AppendixC"> Appendix C: To Be Determined List</a> </li>
+    </div>
+    </section>
+
+
+    <div class="Documentation">
+      <h2>Revision History</h2>
+      <div id="revision">
+        <table id="t01">
+          <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Reason For Changes</th>
+            <th>Version</th>
+          </tr>
+          <tr>
+            <td>First Publication</td>
+            <td>July 18, 2021</td>
+            <td>-</td>
+            <td>v1.0</td>
+          </tr>
+
+          <tr>
+            <td>Second Publication</td>
+            <td>September 13, 2021</td>
+            <td>Database models and libraries updated</td>
+            <td>v2.0</td>
+          </tr>
+        </table>
+      </div>
+
+      <h1 id="First_Point_Header"> Introduction</h1>
+
+      <p>
+      <h2 id="First_Sub_Point_1">1.1 Purpose </h2>
+
+      Purpose
+      The purpose of this document is to present a detailed description of the "Reading Progress App". It will explain
+      the purpose and features of the system, the possible interfaces of the system, what the system will do, the
+      constraints under which it must operate and how the system will react to external stimuli. This document is
+      intended mostly for people involved with the developement of the system, along with users of the system and any
+      other interested parties.<br> It describes the whole system in its current version, v2.0.
+
+      </p>
+
+
+      <p>
+      <h2 id="First_Sub_Point_2"> 1.2 Document Conventions</h2>
+      This document was created based on the IEEE Software Requirements Specification. Which was released in 1999 by
+      Karl E. Wiegers. We have followed a few key conventions of our own for this document, those points are described
+      below.
+      <ul>
+        <li> HTML semantics of H1, H2, Paragraph to denote specific sections and it's content. Each content block is
+          lablled with the respective section no. and sub-section no. For example: "1.4 Product Scope" means it is the
+          fourth sub-section of the first section.
+        </li>
+        <li>
+          <i>Italic</i> is has been mildy used in a few places to denote terms. We have also used <i>italic</i> for the
+          labels of the images or figures.
+        </li>
+        <li>
+          In the "4.System Features" section, we have used the expanded use case diagram to describe the features. Roman
+          numeric characters (I, II, III, IV..) have been used to describe actor actions and system response.
+          <br>To refer alternative course of events, we have added another number with that. So, <i>'III.2'</i> means
+          that this is the "second alternative event" for the "third typical events".
+        </li>
+      </ul>
+      For the printable version, we have removed most of the CSS properties.<br>
+
+
+      </p>
+
+      <p>
+      <h2 id="First_Sub_Point_3">1.3 Intended Audience and Reading Suggestions</h2>
+      The document is mostly intended for developers, project managers, testers, and documentation writers. The rest of
+      the SRS consists of the overall description of the product, including its classes and characteristics, the
+      operating environment, design and implementation constraints, any assumptions taken, etc. It also consists of
+      external interface requirements, the system features, and other non-functional requirements. It would be best to
+      begin with the overall description section, then proceed to the system features, then to the remaining
+      requirements sections.<br>
+      A sperate document as user manual will be created after the first major relase of the product.
+
+      <p>
+      <h2 id="First_Sub_Point_5">1.4 Product Scope</h2>
+      The purpose of the software is to be allow teachers to assign reading material and keep track of the reading
+      progress of their students. Teachers can sign up to the system, create a classroom, assign PDF files, and be able
+      to see questions asked and sections marked by students. The objective is to track the students’ reading progress
+      on the assigned material, and the benefits of using the software include being able to determine better strategies
+      to help students read faster and understand better. The goal of using the product is to improve the reading
+      ability and speed of students.
+      </p>
+
+      <p>
+      <h2 id="First_Sub_Point_6">1.5 References</h2>
+      <ul>
+        <li><a href="https://www.figma.com/file/ZoWbH2clRFWrCKCunc4Lfa/CSE-327"><strong>Figma Design File.</strong></a>
+          This contains the mockup for our user interface.</li>
+        <li><a href="https://material.io/design/guidelines-overview"><strong>Material Design Guideline.</strong></a> For
+          the Android Version of the App, we will follow the material design system provided by Google.</li>
+        <li><a href="https://material.io/design/guidelines-overview"><strong>Tailwindcss Component Library.</strong></a>
+          For the Web Version of the App, we will use Tailwindcss library.</li>
+      </ul>
+      </p>
+      <br>
+
+      <h1 id="Second_Point_Header">2.Overall Description</h1>
+      <p>
+      <h2 id="Second_Sub_Point_1">2.1 Product Perspective</h2>
+      The software is a new, self-contained product, and is not a sub-system of a separate product.
+      </p>
+
+      <p>
+      <h2 id="Second_Sub_Point_2">2.2 Product Functions</h2>
+      <ul>
+        <li> Users should be able to sign up to the system as a Teacher or a Student. </li>
+        <li> Students need to provide a recent photograph when signing up. </li>
+        <li> Teachers should be able to create classroom </li>
+        <li> Teachers should be able to send invitation code to students </li>
+        <li> Students and Teachers can join classroom through invitation code </li>
+        <li> Teacher can assign PDF files as reading material to students in a class </li>
+        <li> Students can see their reading tasks and deadlines on a per-class basis but also as a unified list </li>
+        <li> When a student decides to read a particular material, the system will open and display the material by
+          itself (no download allowed) </li>
+        <li> Students should be able to zoom in and out in the material </li>
+        <li> Students should be able to view material page by page </li>
+        
+      </ul>
+      <img src="images/auth_flow.png">
+      <i class="fig">Figure: Authentication Flow of the System</i><br><br>
+      <img src="images/teachers_portal_flow.png">
+      <i class="fig">Figure: Overveiw of the Teachers Portal's Flow </i><br><br>
+      <img src="images/students_portal_flow.png">
+      <i class="fig">Figure: Overveiw of the Students Portal's Flow </i><br><br>
+      </p>
+
+
+      <p>
+      <h2 id="Second_Sub_Point_3">2.3 User Classes and Characteristics</h2>
+
+
+      There are 2 user classes, distinguishable by privilege levels: Student and Teacher. The Student is expected to be
+      Internet literate and be able to use PDF viewers effectively. The Teacher is expected to be Internet literate and
+      to be able to use email with attachments, and be able to use buttons, pull-down menus, and similar tools.<br>
+      <h4>Student' characteristics: </h4>
+      <ul>
+        <li>Sign up to the system as a Student. </li>
+        <li>Create a profile
+        <li>Provide a recent photograph when signing up.
+        <li>Join classroom through invitation code
+        <li>See their reading tasks and deadlines on a per-class basis, but also as a unified list
+        <li>View the material posted by the teacher.
+        <li>Zoom in and out in the material
+
+      </ul>
+
+      <h4>Teacher's characteristics:</h4>
+      <ul>
+        <li> Sign up to the system as a Teacher. </li>
+        <li> Create classroom </li>
+        <li> Send invitation code to students through email </li>
+        <li> Assign PDF files as reading material to students in a class </li>
+        <li> View questions recorded/stored by students </li>
+        <li> Join a classroom using a code</li>
+
+      </ul>
+      </p>
+      <br>
+
+      <p>
+      <h2 id="Second_Sub_Point_4">2.4 Operating Environment</h2>
+      Software will operate on any major desktop operating system or mobile system with a web browser. A functioning web
+      browser is required for the product to operate properly. Mobile systems are supported till Android version 5.x.x.
+
+      </p>
+
+      <p>
+      <h2 id="Second_Sub_Point_5">2.5 Design and Implementation Constraints</h2>
+      Android App have to be designed in Java. The web application will be developed in Laravel 8.x. A MySQL database
+      must also be used, and knowledge regarding PHP, Html, CSS, and vue.js is needed, as well as proficiency in Laravel
+      framework.
+      <img src="images/mvc.png" alt="mvc framework" style="width: 70%">
+      <br>As rule of thumb, we will be using the MVC Design Pattern as both Android & Laravel architecture supports
+      that. Also, the code will be writtent in a way that no logical block will be written twice in the code.
+      </p>
+
+
+      <p>
+      <h2 id="Second_Sub_Point_6">2.6 User Documentation</h2>
+      <ul>
+        <li>User Manual for the end users will be delievered.</li>
+        <li>A brief API Documentation will be also provided with the end product so that we can adhere to that in the
+          future.</li>
+      </ul>
+      </p>
+
+
+      <p>
+      <h2 id="Second_Sub_Point_6">2.7 Assumptions and Dependencies</h2>
+
+      Dependencies include using Livewire, Laravel UI, Tailwind CSS, Jetstream, Grade packages. Assumptions that we will
+      have to use some sort of library to detect and recognize faces. As well as to parse the PDF into the mobile view.
+      </p>
+
+      <h1 id="Third_Point_Header">3.External Interface Requirements</h1>
+      <p>
+      <h2 id="Third_Sub_Point_1">3.1 User Interfaces</h2>
+      User interface of our application will be easy to use and understandable. It has been written in clear and concise
+      language. Moreover, the user is expected to know the basics of how to use Web and Android applications.
+      <br>A few sample screens are added here to showcase the visual aesthetic, error message style and overall pattern.
+      The full design documentation will be on our Figma file that has been linked in the 1.5 References section.
+      <div id="grid">
+        <div class="grid-col1">
+          <img src="images/interface/00_Welcome.png">
+          <img src="images/interface/01_Signup.png">
+          <img src="images/interface/05_student_photo_invalid.png">
+        </div>
+        <div class="grid-col">
+          <img src="images/interface/01_teachers_portal_empty.png">
+          <img src="images/interface/06_teacher_portal_filled.png">
+          <img src="images/interface/03_teachers_create class_invalid.png">
+        </div>
+      </div>
+      </p>
+
+      <p>
+      <h3 id="sub311">3.1.1 Login Interface</h3>
+
+      In this interface, there will be a button to login with Google, a username field, a password field, a
+      corresponding login button and a register button. User can login to our application using google or username based
+      on how they registered to our system in the first place. If the user has not registered to the application yet,
+      they need to click the register button in order to login.
+
+
+      <h3 id="sub312">3.1.2 Register Interface</h3>
+
+      In this interface, user can register to the system using their Google account, or by giving the required
+      information in the available fields. After filling all the required fields, user may click the register button.
+      After registering successfully, user can login to the system.
+
+      <h3 id="sub313">3.1.3 Teacher Interface</h3>
+      In this interface, user can create a new class, add students to classes, assign reading materials, view queries
+      from students etc.
+
+      <h3 id="sub314">3.1.4 Student Interface</h3>
+      In this interface, user can join classes with teacher provided codes, view assigned materials, and ask questions
+      (in written or verbal form).
+      <br>
+
+      <h2 id="Third_Sub_Point_2">3.2 Hardware Interfaces</h2>
+      The subsection documents all required constraints associated with minimum or actual hardware. <br>
+      • Camera-enabled device<br>
+      Supported devices include major hardware devices that can access the web 2.0 via a modern web browser and has a
+      functional camera. Including Android Phones, Laptop, Desktop. User needs to have a camera enabled device because
+      our application needs to monitor user activity through taking photos of the user.
+      <br>
+      </p>
+
+      <p>
+      <h2 id="Third_Sub_Point_3">3.3 Software Interfaces</h2>
+
+      This application works on both web and android platform. To enjoy all the features without any difficulty a
+      browser supporting html 5 technology and Android version 5.0.x or higher is required. We will be using HTTP and
+      TCP/IP protocol to connect with the camera and APIs. <br>
+      <img src="images/rest-api-1.png" alt="RESTful API">
+      We will be using RESTful API in our system.
+
+      </p>
+
+      <p>
+      <h2 id="Third_Sub_Point_4">3.4 Communications Interfaces</h2>
+      <img src="images/http.gif" style="width: 80%"><br>
+      Our application uses HTTP and TCP/IP request over the internet or local files to access the database using API.
+      <br>
+      </p>
+      <br>
+      <p>
+      <h1 id="Fourth_Point_Header">4.System Features</h1>
+      <img src="images/Use Case Diagram.png" alt="use case diagram">
+      <i class="fig">Fig: Use Case Diagram</i>
+      <h2 id="Fourth_Sub_Point_1">4.1 Sign-up to system</h2>
+      <p>Actor: Teacher, Student <br>
+        Description: User needs to register to the system for using the functionalities.<br>
+        Type: Primary
+      </p>
+
+
+
+      <h4>Typical Course of events</h4>
+      <table>
+
+
+        <tr>
+          <th>Actor Actions</th>
+          <th>System Responses</th>
+
+        </tr>
+
+        <tr>
+          <td>I.Clicks on the Create New Account button.</td>
+          <td> II.Redirects to the registration interface.</td>
+
+        </tr>
+
+        <tr>
+          <td>III. Clicks on Register with Google button, or fills up all required fields of the form and clicks on
+            Register button.</td>
+          <td>IV. Creates an account saving the information to database and sends a confirmation email.</td>
+
+        </tr>
+
+      </table>
+
+      <p>
+      <h4>Alternative Course of Events</h4>
+      III.1 User forgets to fill up required fields before clicking on register button: System generates a message
+      saying “Fill all required fields”.
+      </p>
+
+      <h2 id="Fourth_Sub_Point_2">4.2 Log-in to system</h2>
+
+      <p>Actor: Teacher, Student <br>
+        Description: User needs to log-in to the system to use the product. <br>
+        Type: Primary<br>
+        Cross-reference: 4.1- Sign-up to system <br>
+
+      </p>
+      <h4>Typical Course of events</h4>
+      <table>
+
+
+        <tr>
+          <th>Actor Actions</th>
+          <th>System Responses</th>
+
+        </tr>
+
+        <tr>
+          <td>I. Clicks on the login button. </td>
+          <td>II. Takes user to login interface</td>
+
+        </tr>
+
+        <tr>
+          <td>III. Fills username and password fields. Or, clicks on Login using google account.</td>
+          <td>IV. Redirects to the student/teacher interface based on account credentials.</td>
+
+        </tr>
+
+      </table>
+
+      <p>
+      <h4>Alternative Course of Events</h4>
+
+
+      III.1 User inserts an unregistered email address: System generates a message to “Sign Up first”. <br>
+      III.2 User inserts wrong password: System generates a message “Incorrect Password”. <br>
+      III.3 User cannot remember password: User clicks on ‘Forgot Password?’ button, and system redirects them to <br>
+      password recovery interface.
+
+      </p>
+
+
+
+      <h2 id="Fourth_Sub_Point_3">4.3 Create classroom</h2>
+
+      <p>Actor: Teacher <br>
+        Description: A valid Teacher account holder can create classrooms. <br>
+        Type: Primary<br>
+		Cross-reference: 4.2- Log-in to system 
+
+      </p>
+      <h4>Typical Course of events</h4>
+	  <p>[Includes Log-in to system Use Case]</p>
+      <table>
+
+
+        <tr>
+          <th>Actor Actions</th>
+          <th>System Responses</th>
+
+        </tr>
+
+        <tr>
+          <td>I. Clicks on the Create classroom button. </td>
+          <td>II. Presents a form to fill-up.</td>
+
+        </tr>
+
+        <tr>
+          <td>III. Gives a unique title for the classroom.</td>
+          <td>IV. Creates the classroom. </td>
+        </tr>
+
+        <tr>
+          <td> </td>
+          <td>V.Stores course information in the database.</td>
+        </tr>
+
+
+
+
+      </table>
+
+      <p>
+      <h4>Alternative Course of Events</h4>
+
+
+      II.1. Teacher gives an already existing title for a new classroom: System generates an error message “This title
+      has already been taken.” <br>
+      IV.1. System encounters an error and fails to create classroom: System generates error message and prompts user to
+      re-enter classroom information.
+
+
+      </p>
+      <h2 id="Fourth_Sub_Point_4">4.4 Assign PDF files as reading materials</h2>
+      <p>Actor: Teacher<br>
+        Description: A valid teacher account holder can send invitation code to students and teachers so that they can
+        join the classroom. <br>
+        Type: Primary</br>
+		Cross-Reference: 4.2 Log-in to system
+      <h4>Typical Course of events</h4>
+	  <p>[Includes Log-in to system Use Case]</p>
+      <table>
+
+
+        <tr>
+          <th>Actor Actions</th>
+          <th>System Responses</th>
+
+        </tr>
+
+        <tr>
+          <td>I. Goes to Classroom page for a specific classroom. </td>
+          <td>II. Redirects to material assigning interface.</td>
+
+        </tr>
+
+        <tr>
+          <td>III. Clicks on Create Assignment button.</td>
+          <td> </td>
+        </tr>
+
+        <tr>
+          <td>IV. Selects the PDF file & send code.</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>V.Add the email address of the teacher or student.</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>VI. Clicks on the Assign Material button.</td>
+          <td>VII. Creates Assignment in classroom</td>
+        </tr>
+
+
+      </table>
+
+      <p>
+      <h4>Alternative Course of Events</h4>
+
+
+      IV.1. Teacher selects file of an incorrect format: System generates error message “No file uploaded or invalid
+      file type”. <br>
+      IV.2. Teacher clicks Assign Material button without having uploaded a PDF file: System generates error message “No
+      file uploaded or invalid file type”. <br>
+      IV.3. Teacher gives an already existing title for a new assignment: System generates an error message “This title
+      has already been taken”. <br>
+      VI.1. System encounters an error and fails to create assignment: System generates an error message and prompts
+      user to re-enter classroom information.
+
+
+      </p>
+
+
+
+      <h2 id="Fourth_Sub_Point_5">4.5 Send invitation code</h2>
+      <p>Actor: Teacher<br>
+        Description: A valid teacher account holder can send invitation code to students for joining the classroom. <br>
+        Type: Primary<br>
+		Cross-Reference: 4.2 Log-in to system
+      <h4>Typical Course of events</h4>
+	  <p>[Includes Log-in to system Use Case]</p>
+
+      <table>
+
+
+        <tr>
+          <th>Actor Actions</th>
+          <th>System Responses</th>
+
+        </tr>
+
+        <tr>
+          <td>I. Goes to Classroom page for a specific classroom. </td>
+          <td> </td>
+
+        </tr>
+
+        <tr>
+          <td>II. Clicks on the Send Invitation button.</td>
+          <td>III. Redirects to Invitation interface.</td>
+        </tr>
+
+        <tr>
+          <td>IV. Adds the email addresses of the students and clicks Send button.</td>
+          <td>V. Sends students an email with the invitation code to join the classroom.</td>
+        </tr>
+
+
+
+      </table>
+
+      <p>
+      <h4>Alternative Course of Events</h4>
+
+
+      IV.1. Teacher adds email address in incorrect format: System generates an error message and prompts user to
+      re-enter the email address
+
+
+      </p>
+
+
+
+
+
+      <h2 id="Fourth_Sub_Point_6">4.6 Update Profile picture</h2>
+
+      <p>Actor: Student <br>
+        Description: A student account holder can update their photograph from the default picture. <br>
+        Type: Primary <br>
+        Cross-reference: 4.2 - Log-in to system
+
+
+
+      </p>
+      <h4>Typical Course of events</h4>
+
+      [Includes Log-in to system Use Case]
+      <table>
+
+
+        <tr>
+          <th>Actor Actions</th>
+          <th>System Responses</th>
+
+        </tr>
+
+         
+        <tr>
+          <td>I. Clicks on "Update Profile picture" </td>
+
+        </tr>
+
+        <tr>
+          <td>II.Redirects student to a form </td>
+          <td> </td>
+        </tr>
+
+        <tr>
+          <td>III. Chooses a picture of themselves.</td>
+          <td> </td>
+        </tr>
+
+        <tr>
+          <td>IV. Uploads their photograph.</td>
+          <td>IV. Saves the photograph in database. </td>
+        </tr>
+
+      </table>
+
+      <p>
+      <h4>Alternative Course of Actions </h4>
+      III.1. Student uploads an image in an invalid format: System generates error message “No file uploaded or invalid file type”.
+      <br>
+      III.2. Student uploads no image: System generates error message “No file uploaded or invalid file type”.
+
+
+      </p>
+
+      <h2 id="Fourth_Sub_Point_7">4.7 View assignment</h2>
+
+      <p>Actor: Teacher and student <br>
+        Description: A valid student account holder can access the assigned reading materials in the classroom. <br>
+        Type: Primary<br>
+		Cross-Reference: 4.2 Log-in to system
+      <h4>Typical Course of events</h4>
+	  <p>[Includes Log-in to system Use Case]</p>
+
+      <table>
+
+
+        <tr>
+          <th>Actor Actions</th>
+          <th>System Responses</th>
+
+        </tr>
+
+        <tr>
+          <td>I. Clicks on an assignment.</td>
+          <td>II. Redirects user to PDF view interface </td>
+
+        </tr>
+
+
+
+        <tr>
+          <td>III. Clicks on Next/Previous button.</td>
+          <td>VI. Redirects to the appropriate page.</td>
+        </tr>
+
+
+
+
+      </table>
+
+      <p>
+      <h4>Alternative Course of Actions </h4>
+
+
+      III.1. User does not grant the system permission to use their camera: System prompts user to provide permission to
+      use their camera again. <br>
+
+      IV.System encounters an error when opening the assignment: System generates an error message.
+
+
+      </p>
+
+
+
+
+      <h2 id="Fourth_Sub_Point_8">4.8 Zoom-In and Zoom-out of PDFs</h2>
+
+      <p>Actor: Student <br>
+        Description: A valid student account holder can zoom in or out in an assigned reading material in the classroom.
+        <br>
+        Type: Primary <br>
+        Cross-reference: 4.9- Read Assignment
+
+
+      </p>
+      <h4>Typical Course of events</h4>
+      [Includes Read Assignment Use Case]
+      <table>
+
+
+        <tr>
+          <th>Actor Actions</th>
+          <th>System Responses</th>
+
+        </tr>
+
+      
+
+        <tr>
+          <td>I. Clicks on zoom-in option inside assignment reading interface.</td>
+          <td>II. Zooms in to PDF file.</td>
+        </tr>
+
+        <tr>
+          <td>III. Clicks on zoom-out option inside assignment reading interface.</td>
+          <td>IV. Zooms out of PDF file. </td>
+        </tr>
+
+
+      </table>
+
+      <br>
+
+      <h2 id="Fourth_Sub_Point_9">4.9 Edit assignment</h2>
+
+      <p>Actor: Teacher <br>
+        Description: A teacher can edit the details of any assigned reading materials in the classroom.<br>
+        Type: Primary<br>
+        Cross-reference:
+      <ul>
+        <li>4.2: Log-in to system</li>
+        <li>4.3 Create Classroom </li>
+        <li>4.4 Assign PDF files as reading materials</li>
+        <li> 4.11 Join Classroom</li>
+
+      </ul>
+      <br>
+
+      </p>
+      <h4>Typical Course of events</h4>
+      [Includes Log-in to system, Create Classroom, Join Classroom, and Assign PDF files as reading materials Use
+          Cases]
+      <table>
+
+
+        <tr>
+          <th>Actor Actions</th>
+          <th>System Responses</th>
+
+        
+
+        </tr>
+
+        <tr>
+          <td>I. Clicks on 'Edit assignment'</td>
+          <td> II. Redirects teacher to the edit form for the assignment</td>
+
+        </tr>
+
+        <tr>
+          <td>III. Fills in the necessry fields. </td>
+          <td>VI. Validates the field information. </td>
+
+        </tr>
+        <tr>
+          <td> </td>
+          <td>VII. Updates the assignment information in the database. </td>
+
+        </tr>
+      </table>
+
+      <p>
+      <h4>Alternative Course of Events</h4>
+
+
+      III.1: Teacher enters information in the incorrect format: System generates an error message. <br>
+      VII.1:System encounters an error when updating the assignment: System generates an error message.
+
+
+      </p>
+
+
+
+      <br>
+
+      <h2 id="Fourth_Sub_Point_10">4.10 Delete assignment</h2>
+
+      <p>Actor: Teacher <br>
+        Description:  A teacher can delete any assigned reading materials in the classroom.<br>
+        Type: Primary<br>
+        Cross-reference:
+      <ul>
+        <li>4.2: Log-in to system</li>
+        <li>4.3 Create Classroom </li>
+        <li>4.10 Assign PDF files as reading materials</li>
+        <li> 4.11 Join Classroom</li>
+
+      </ul>
+      <br>
+
+      </p>
+      <h4>Typical Course of events</h4>
+      [Includes Log-in to system, Create Classroom, Join Classroom, and Assign PDF files as reading materials Use
+          Cases]
+      <table>
+
+
+        <tr>
+          <th>Actor Actions</th>
+          <th>System Responses</th>
+
+       
+
+        </tr>
+
+        <tr>
+          <td>I. Clicks on 'Delete assignment'</td>
+          <td> II. Deletes the assignment from the database</td>
+
+        </tr>
+
+        <tr>
+          <td> </td>
+          <td> III.Redirects user to the course page</td>
+
+        </tr>
+        
+      </table>
+
+      <p>
+      <h4>Alternative Course of Events</h4>
+      II.1:System encounters an error when deleting the assignment: System generates an error message. 
+
+
+      </p>
+
+      <br>
+
+      <h2 id="Fourth_Sub_Point_11">4.11 Join Classroom</h2>
+
+      <p>Actor: Teacher and Student users <br>
+        Description: A teacher or a student can join a classroom by entering a class code.<br>
+        Type: Primary<br>
+        Cross-reference:
+      <ul>
+        <li>4.2: Log-in to system</li>
+        
+      </ul>
+      <br>
+
+      </p>
+      <h4>Typical Course of events</h4>
+      <table>
+
+
+        <tr>
+          <th>Actor Actions</th>
+          <th>System Responses</th>
+
+        <tr>[Includes Log-in to system  Use Cases] </tr>
+
+        </tr>
+
+        <tr>
+          <td>I.Clicks on 'Join Classroom'</td>
+          <td> II. Prompts user to enter a class code</td>
+
+        </tr>
+
+        <tr>
+          <td> III. Enters class code</td>
+          <td>IV. Adds user to the corresponding classroom</td>
+
+        </tr>
+
+        <tr>
+          <td> </td>
+          <td>V. Redirects user to their classroom page</td>
+
+        </tr>
+        
+      </table>
+
+      <p>
+      <h4>Alternative Course of Events</h4>
+      II.1:System fails to find the corresponding classroom: System generates an error message. <br>
+IV.1: System encounters an error while adding user to the classroom: System generates an error message.
+
+
+      </p>
+
+      <h2 id="Fourth_Sub_Point_12">4.12 View Assignments on a per-class basis</h2>
+
+      <p>Actor: Teacher <br>
+        Description: A student can view every assignment they have for each class they are enrolled in.<br>
+        Type: Primary<br>
+        Cross-reference:
+      <ul>
+        <li>4.2: Log-in to system</li>
+        
+        <li> 4.11 Join Classroom</li>
+
+      </ul>
+      <br>
+
+      </p>
+      <h4>Typical Course of events</h4>
+      [Includes Log-in to system, and Join Classroom use Cases]
+      <table>
+
+
+        <tr>
+          <th>Actor Actions</th>
+          <th>System Responses</th>
+
+       
+
+        </tr>
+
+        <tr>
+          <td>I. Go to 'View assignments'</td>
+          <td> </td>
+
+        </tr>
+
+        <tr>
+          <td>II. Clicks on the course they want to view assignments for. </td>
+          <td> </td>
+
+        </tr>
+        
+        <tr>
+          <td> </td>
+          <td> II. Fetches all assignments for that particular course  </td>
+
+        </tr>
+        <tr>
+          <td> </td>
+          <td>III. Presents user with the assignments for the specified course</td>
+
+        </tr>
+      </table>
+      
+
+      <h2 id="Fourth_Sub_Point_13">4.13 View Assignments as a unified list</h2>
+
+      <p>Actor:Student <br>
+        Description:  A student can view all assignments from every course they are enrolled in as a unified list<br>
+        Type: Primary<br>
+        Cross-reference:
+      <ul>
+        <li>4.2: Log-in to system</li>
+        
+        <li> 4.11 Join Classroom</li>
+
+      </ul>
+      <br>
+
+      </p>
+      <h4>Typical Course of events</h4>
+      [Includes Log-in to system, and Join Classroom use Cases]
+      <table>
+
+
+        <tr>
+          <th>Actor Actions</th>
+          <th>System Responses</th>
+
+       
+
+        </tr>
+
+        <tr>
+          <td>I. Go to 'View assignments'</td>
+          <td>II. Fetches all course assignments for the user </td>
+		  
+        </tr>
+
+        <tr>
+          
+          <td> </td>
+
+        </tr>
+        
+        <tr>
+          <td> </td>
+          <td> III. Fetches all assignments for that particular course  </td>
+
+        </tr>
+        <tr>
+          <td> </td>
+          <td>IV.Presents user with the assignments from every course they are enrolled in</td>
+
+        </tr>
+      </table>
+
+      <p>
+      <h4>Alternative Course of Events</h4>
+      II.1:System encounters an error when fetching the assignments from the specified courses: System generates an error message. 
+
+
+
+      </p>
+
+      <br>
+
+      <p>
+      <h1 id="Fifth_Point_Header">5.Other Nonfunctional Requirements</h1>
+
+      <h2 id="Fifth_Sub_Point_1">5.1 Performance Requirements</h2>
+      Our application runs over the internet. If there is no connectivity issues from the user end, it is supposed to
+      run in real-time, as normally http responses take less than a second. However, we will be using third-party
+      software for image recognition. Thus, we can’t guarantee the performance of that engine. Face recognition will
+      require quality image in proper light and angle.<br>
+
+      <h2 id="Fifth_Sub_Point_2">5.2 Safety Requirements</h2>
+      Pictures of students will be taken as part of tracking their reading progress, therefore, to protect them from
+      possible harm, we will have to take permission while signup.<br>
+
+      <h2 id="Fifth_Sub_Point_3">5.3 Security Requirements</h2>
+      Sensitive data like password of the users shall be encrypted. We will also use HTTPS over HTTP if we deploy our
+      code into a global server.<br>
+
+      <h2 id="Fifth_Sub_Point_4">5.4 Software Quality Attributes</h2>
+      This software preferes correctness, portability and testibility over everything else. However, we will also foucs
+      on the aspects of reliability, reusability, and usability.
+      <h2 id="Fifth_Sub_Point_5">5.5 Business Rules</h2>
+      Not applicable.
+      </p>
+
+      <p>
+      <h1 id="Sixth_Point_Header">6.Other Requirements</h1>
+      <h2 id="AppendixA">Appendix A: Glossary </h2>
+      <table>
+        <tr>
+          <th>Terms</th>
+          <th>Meaning</th>
+        </tr>
+        <tr>
+          <td>SRS</td>
+          <td>Software Requirement Specification</td>
+        </tr>
+        <tr>
+          <td>API</td>
+          <td>Application Programming Interface</td>
+        </tr>
+        <tr>
+          <td>HTTP</td>
+          <td>Hyper Text Transfer Protocol</td>
+        </tr>
+        <tr>
+          <td>HTTPS</td>
+          <td>Hyper Text Transfer Protocol Secured</td>
+        </tr>
+        <tr>
+          <td>TCP/IP</td>
+          <td>Transmission Control Protocol/Internet Protocol</td>
+        </tr>
+      </table>
+      <h2 id="AppendixB">Appendix B: Analysis Models </h2>
+      <img src="images/dbschema.png">
+      <br><i class="fig">Initial DB Schema with Role Permission</i>
+
+      <h2 id="AppendixC">Appendix C: To Be Determined List </h2>
+      <li>The complete design mockup for the whole portal</li>
+      </p>
+
+
+    </div>
+
+  </div>
+
+  </div>
+
+  <footer id="main-footer">
+    <p>Copyright &copy;2021| Made for CSE 327</p>
+  </footer>
+
+
+</body>
+
+</html>

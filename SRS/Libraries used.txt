@@ -1,0 +1,22 @@
+Laravel Libraries installed so far
+==================================
+Laravel/ui
+Laravel/jetstream
+Laravel livewire
+
+
+Commands to run the laravel system 
+==================================
+0. First create a MySQL table called 'readapp'.
+> You can use MySQL workbench, XAMP, WAMP, PHP MyAdmin or command line. Anything will work.
+
+Then open a terminal or command line. And run this command one by one
+
+1. cd [Your file location]/summer21.cse327.1.6/Laravel/ReadApp
+2. cp .env.example .env
+3. php artisan key:generate
+4. php artisan config:cache
+5. php artisan migrate
+6. php artisan serve --port=8080
+
+Now from your browser go to localhost:8080/

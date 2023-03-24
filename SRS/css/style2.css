@@ -1,0 +1,84 @@
+/*for print*/
+@media print{
+	*{
+		background: transparent !important;
+		color: #000 !important;
+		box-shadow: none !important;
+		text-shadow: none !important;
+	}
+
+	#navbar,#sidebar, #main-footer{
+		display: none;
+	}
+
+
+	#showcase{
+		page-break-after: always;
+	}
+
+	#main-header{
+		margin-bottom: 0;
+		border:none;
+		text-align: center;
+	}
+
+	#toc_container{
+		page-break-after: always;
+	}
+
+	
+	a[href^="http:"]::after{
+		content: "["attr(href)"]"
+		color:black;
+	}
+
+	@page{
+		margin:.5cm;
+	}
+
+	@page :first{
+		margin-top: 2cm;
+	}
+
+	p,ul,li{
+		orphans: 3;
+		widows:3;
+	}
+
+	table{
+		widows: 90%;
+		margin: auto;
+	}
+
+	img {
+		margin: auto;
+		width: 80%;
+	}
+
+	table{
+		width: 400px;
+	}
+
+	th{
+		text-align: center;
+	}
+	table, th,td{
+		border:1px solid #000;
+		border-collapse: collapse;
+	}
+	th,td{
+		padding: 10px;
+	}
+	#grid{
+		display: grid;
+		grid-template-columns: repeat(2, 4fr);
+		grid-template-rows: repeat(2, 35vw);
+		grid-gap: 15px;
+		page-break-after: always;
+	}
+
+	h2,ul, table, tr, td, th{
+		page-break-after: avoid;
+	}
+}
+

@@ -1,0 +1,178 @@
+body{
+	background-color: #e0d8eb;
+	color: #374151;
+	font-family: Arial, Helvetica, sans serif;
+	font-size: 16px;
+	line-height: 1.6em;
+	margin: 0;
+}
+
+a{
+	color: #2563EB;
+	text-decoration: none;
+}
+
+h1, h2, h3, h4{
+	font-family: 'Poppins', sans-serif;
+	line-height: 1em;
+}
+
+a:hover{
+	color: #1E40AF;
+	text-decoration: underline;
+}
+
+.layout{
+	display: grid;
+	grid-template-columns: 30% 70%;
+}
+
+.container{
+	width: 80%;
+	margin:auto;
+	overflow: hidden;
+}
+
+#main-header{
+	background: #FFFFFF;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 1;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 600;
+	box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1), 0px 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+#showcase{
+	background: linear-gradient(125deg, #DDA0DD 0% , #5EDFFF calc(60% + 1px), #a07ee0 72%, #683fa6 100%);	
+	padding-top: 100px;
+	width: 100%;
+	min-height: 700px;
+	font-weight: 700;
+	font-size: 1.3em;
+	line-height: 1.8em;
+}
+
+#showcase li{
+	list-style: none;
+	margin-left: -40px;
+}
+
+#revision{
+	position: relative;
+	margin: 30px;
+}
+
+table {
+	width: 100%;
+	background-color: #F4F7FD;
+	text-align: center;
+	align-self: center;
+	margin: auto;
+}
+
+
+th {
+	color: white;
+	background-color: #77859E;
+}
+
+
+
+#main{
+	float: left;
+	/*	width: 70%;*/
+	padding:0 30px;
+	box-sizing: border-box;
+}
+
+#sidebar{
+	float: right;
+	/*	width: 30%;*/
+	background: #333;
+	color:#fff;
+	padding:10px;
+	box-sizing: border-box;
+}
+
+#main-footer{
+	background: #333;
+	color: #fff;
+	text-align: center;
+	padding:20px;
+}
+.Documentation{
+	margin: 20px;
+	
+}
+/*@media(max-width: 600px){
+	#main{
+		width:100%;
+		float:none;
+	}
+
+	#sidebar{
+		width:100%;
+		float:none;
+	}
+	}*/
+
+	#toc_container {
+		background: #F4F8FF none repeat scroll 0 0;
+		border: 1px solid #E5E7EB;
+		display: table;
+		font-size: 95%;
+		padding: 20px;
+
+	}
+
+	.toc_title {
+		font-weight: bold;
+		font-size: 1.5em;
+		margin-left: 10%;
+	}
+
+	#toc_container li, #toc_container ul, #toc_container ul li{
+		list-style: outside none none !important;
+	}
+
+	#toc_container ul{
+		margin-bottom: 10px;
+	}
+
+	table{
+		width: 80%;
+	}
+
+	th{
+		text-align: center;
+	}
+	table, th,td{
+		border:1px solid #9CA3AF;
+		border-collapse: collapse;
+	}
+	th,td{
+		padding: 10px;
+	}
+
+	.fig {
+		margin: auto;
+		color: #6B7280;
+	}
+
+	#grid{
+		display: grid;
+		grid-template-columns: repeat(2, 4fr);
+		grid-template-rows: repeat(2, 35vw);
+		grid-gap: 15px;
+	}
+
+	img{
+		position: relative;
+		padding-right: 10%;
+		width: 100%;
+	}
+
+
+
